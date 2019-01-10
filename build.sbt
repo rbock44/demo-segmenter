@@ -1,4 +1,3 @@
-
 lazy val commonSettings = Seq(
   version := "1",
   organization := "session-segmenter",
@@ -30,16 +29,14 @@ lazy val app = project.dependsOn(common)
         "org.apache.kafka" % "kafka-streams-test-utils" % "2.1.0" % "test"
       )
     },
-    packageName in Docker := "session-segmenter"
-  ).enablePlugins(JavaAppPackaging,DockerPlugin)
+  ).enablePlugins(JavaAppPackaging)
 
 
 lazy val driver = project.dependsOn(common)
   .settings(commonSettings: _*)
-  .settings(packageName in Docker := "session-segmenter-driver")
-  .enablePlugins(JavaAppPackaging,DockerPlugin)
+  .enablePlugins(JavaAppPackaging)
 
 lazy val reader = project.dependsOn(common)
   .settings(commonSettings: _*)
-  .settings(packageName in Docker := "session-segmenter-reader")
-  .enablePlugins(JavaAppPackaging,DockerPlugin)
+  .enablePlugins(JavaAppPackaging)
+

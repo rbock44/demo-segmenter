@@ -2,7 +2,7 @@ version: '2.1'
 services:
 
   app:
-    image: session-segmenter:1
+    image: session-segmenter-app:latest
     environment:
       KAFKA_BOOTSTRAP_SERVERS: kafka:29092
       KAFKA_SCHEMA_REGISTRY: "http://schema-registry:8081"
@@ -11,7 +11,7 @@ services:
       - schema-registry
 
   driver:
-    image: session-segmenter-driver:1
+    image: session-segmenter-driver:latest
     environment:
       KAFKA_BOOTSTRAP_SERVERS: kafka:29092
       KAFKA_SCHEMA_REGISTRY: "http://schema-registry:8081"
@@ -21,7 +21,7 @@ services:
       - schema-registry
 
   reader:
-    image: session-segmenter-reader:1
+    image: session-segmenter-reader:latest
     environment:
       KAFKA_BOOTSTRAP_SERVERS: kafka:29092
       KAFKA_SCHEMA_REGISTRY: "http://schema-registry:8081"
