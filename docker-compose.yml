@@ -2,7 +2,7 @@ version: '2.1'
 services:
 
   app:
-    image: session-segmenter-app:1
+    image: session-segmenter:1
     environment:
       KAFKA_BOOTSTRAP_SERVERS: kafka:29092
       KAFKA_SCHEMA_REGISTRY: "http://schema-registry:8081"
@@ -55,7 +55,6 @@ services:
   schema-registry:
     image: confluentinc/cp-schema-registry:5.0.1
     hostname: schema-registry
-    container_name: schema-registry
     depends_on:
       - zookeeper
       - kafka
