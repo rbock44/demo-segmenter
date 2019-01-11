@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-docker run -it --rm -v $(pwd):/root hseeberger/scala-sbt sh ./build-project.sh
-#docker run -it --rm -v $(pwd):/user hseeberger/scala-sbt cd /user && sbt compile assembly
+docker run -it --rm -e HOSTUID=$(id -u) -v $(pwd):/root hseeberger/scala-sbt sh ./build-project.sh
 if [[ $? -eq 0 ]]
 then 
 bash -c "cd driver && docker build -t session-segmenter-driver ."
